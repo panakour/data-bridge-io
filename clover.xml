@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1728302581">
-  <project timestamp="1728302581">
-    <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/DataTransformer.php">
-      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-    </file>
+<coverage generated="1728307556">
+  <project timestamp="1728307556">
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/EntityDTO.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
@@ -19,10 +16,13 @@
       <line num="19" type="stmt" count="3"/>
       <metrics loc="22" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
     </file>
-    <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/ImportStrategy.php">
+    <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Importer.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Persister.php">
+      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Transformer.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <metrics files="5" loc="66" ncloc="66" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
