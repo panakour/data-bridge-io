@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo;
 
-use Panakour\DataBridgeIo\DataTransformer;
 use Panakour\DataBridgeIo\EntityDTO;
+use Panakour\DataBridgeIo\Importer;
 use Panakour\DataBridgeIo\ImportFacade;
-use Panakour\DataBridgeIo\ImportStrategy;
 use Panakour\DataBridgeIo\Persister;
+use Panakour\DataBridgeIo\Transformer;
 
 class ImportFacadeTest extends TestCase
 {
@@ -22,8 +22,8 @@ class ImportFacadeTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mockStrategy = $this->createMock(ImportStrategy::class);
-        $this->mockTransformer = $this->createMock(DataTransformer::class);
+        $this->mockStrategy = $this->createMock(Importer::class);
+        $this->mockTransformer = $this->createMock(Transformer::class);
         $this->mockPersister = $this->createMock(Persister::class);
 
         $this->importFacade = new ImportFacade(

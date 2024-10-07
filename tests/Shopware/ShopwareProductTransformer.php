@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo\Shopware;
 
-use Panakour\DataBridgeIo\DataTransformer;
 use Panakour\DataBridgeIo\EntityDTO;
+use Panakour\DataBridgeIo\Transformer;
 
-class ShopwareProductTransformer implements DataTransformer
+class ShopwareProductTransformer implements Transformer
 {
     public function transform(array $data): EntityDTO
     {

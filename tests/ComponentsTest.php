@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo;
 
-use Panakour\DataBridgeIo\DataTransformer;
 use Panakour\DataBridgeIo\EntityDTO;
-use Panakour\DataBridgeIo\ImportStrategy;
+use Panakour\DataBridgeIo\Importer;
 use Panakour\DataBridgeIo\Persister;
+use Panakour\DataBridgeIo\Transformer;
 
 class ComponentsTest extends TestCase
 {
     public function testImportStrategy()
     {
-        $mockStrategy = new class implements ImportStrategy
+        $mockStrategy = new class implements Importer
         {
             public function import(): array
             {
@@ -29,7 +29,7 @@ class ComponentsTest extends TestCase
 
     public function testDataTransformer()
     {
-        $mockTransformer = new class implements DataTransformer
+        $mockTransformer = new class implements Transformer
         {
             public function transform(array $data): EntityDTO
             {

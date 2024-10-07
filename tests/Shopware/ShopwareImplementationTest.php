@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo\Shopware;
 
+use Panakour\DataBridgeIo\Importer;
 use Panakour\DataBridgeIo\ImportFacade;
-use Panakour\DataBridgeIo\ImportStrategy;
 use Panakour\Test\DataBridgeIo\TestCase;
 
 class ShopwareImplementationTest extends TestCase
@@ -20,7 +20,7 @@ class ShopwareImplementationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mockStrategy = $this->createMock(ImportStrategy::class);
+        $this->mockStrategy = $this->createMock(Importer::class);
         $this->shopwareTransformer = new ShopwareProductTransformer;
         $this->shopwarePersister = new ShopwareProductPersister;
 

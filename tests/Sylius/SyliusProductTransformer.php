@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo\Sylius;
 
-use Panakour\DataBridgeIo\DataTransformer;
 use Panakour\DataBridgeIo\EntityDTO;
+use Panakour\DataBridgeIo\Transformer;
 
-class SyliusProductTransformer implements DataTransformer
+class SyliusProductTransformer implements Transformer
 {
     public function transform(array $data): EntityDTO
     {

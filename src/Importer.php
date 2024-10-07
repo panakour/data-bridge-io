@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Panakour\DataBridgeIo;
 
-interface ImportStrategy
+interface Importer
 {
     public function import(): array;
 }

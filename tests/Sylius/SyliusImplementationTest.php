@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo\Sylius;
 
+use Panakour\DataBridgeIo\Importer;
 use Panakour\DataBridgeIo\ImportFacade;
-use Panakour\DataBridgeIo\ImportStrategy;
 use Panakour\Test\DataBridgeIo\TestCase;
 
 class SyliusImplementationTest extends TestCase
@@ -20,7 +20,7 @@ class SyliusImplementationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mockStrategy = $this->createMock(ImportStrategy::class);
+        $this->mockStrategy = $this->createMock(Importer::class);
         $this->syliusTransformer = new SyliusProductTransformer;
         $this->syliusPersister = new SyliusProductPersister;
 

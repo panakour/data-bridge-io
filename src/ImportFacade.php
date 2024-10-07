@@ -7,8 +7,8 @@ namespace Panakour\DataBridgeIo;
 class ImportFacade
 {
     public function __construct(
-        private ImportStrategy $strategy,
-        private DataTransformer $dataTransformer,
+        private Importer $strategy,
+        private Transformer $dataTransformer,
         private Persister $persister,
     ) {}
 
