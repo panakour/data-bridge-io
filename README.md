@@ -4,14 +4,12 @@
     <strong>A flexible, platform-agnostic data importing abstraction layer mainly for e-commerce</strong>
 </p>
 
-<p align="center">
-    <a href="https://github.com/panakour/data-bridge-io"><img src="https://img.shields.io/badge/source-panakour/data--bridge--io-blue.svg?style=flat-square" alt="Source Code"></a>
-    <a href="https://packagist.org/packages/panakour/data-bridge-io"><img src="https://img.shields.io/packagist/v/panakour/data-bridge-io.svg?style=flat-square&label=release" alt="Download Package"></a>
-    <a href="https://php.net"><img src="https://img.shields.io/packagist/php-v/panakour/data-bridge-io.svg?style=flat-square&colorB=%238892BF" alt="PHP Programming Language"></a>
-    <a href="https://github.com/panakour/data-bridge-io/blob/main/LICENSE"><img src="https://img.shields.io/packagist/l/panakour/data-bridge-io.svg?style=flat-square&colorB=darkcyan" alt="Read License"></a>
-    <a href="https://github.com/panakour/data-bridge-io/actions/workflows/tests.yml/badge.svg"><img src="https://img.shields.io/github/actions/workflow/status/panakour/data-bridge-io/tests.yml?branch=main&style=flat-square&logo=github" alt="Build Status"></a>
-    <a href="https://shepherd.dev/github/panakour/data-bridge-io"><img src="https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fpanakour%2Fdata-bridge-io%2Fcoverage" alt="Psalm Type Coverage"></a>
-</p>
+[![Source](https://img.shields.io/badge/source-panakour/data--bridge--io-blue.svg?style=flat-square)](./)
+[![Release](https://img.shields.io/packagist/v/panakour/data-bridge-io.svg?style=flat-square&label=release)](https://packagist.org/packages/panakour/data-bridge-io)
+[![PHP](https://img.shields.io/packagist/php-v/panakour/data-bridge-io.svg?style=flat-square&colorB=%238892BF)](https://php.net)
+[![License](https://img.shields.io/packagist/l/panakour/data-bridge-io.svg?style=flat-square&colorB=darkcyan)](./blob/main/LICENSE)
+[![Psalm Type Coverage](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Fshepherd.dev%2Fgithub%2Fpanakour%2Fdata-bridge-io%2Fcoverage)](https://shepherd.dev/github/panakour/data-bridge-io)
+![Code Coverage Badge](./coverage-badge.svg)
 
 ## About
 
