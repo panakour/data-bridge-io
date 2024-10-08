@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1728307556">
-  <project timestamp="1728307556">
+<coverage generated="1728370078">
+  <project timestamp="1728370078">
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/EntityDTO.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
