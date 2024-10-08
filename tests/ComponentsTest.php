@@ -11,10 +11,9 @@ use Panakour\DataBridgeIo\Transformer;
 
 class ComponentsTest extends TestCase
 {
-    public function testImportStrategy()
+    public function testImportStrategy(): void
     {
-        $mockStrategy = new class implements Importer
-        {
+        $mockStrategy = new class implements Importer {
             public function import(): array
             {
                 return ['test' => 'data'];
@@ -22,19 +21,16 @@ class ComponentsTest extends TestCase
         };
 
         $result = $mockStrategy->import();
-        $this->assertIsArray($result);
         $this->assertArrayHasKey('test', $result);
         $this->assertEquals('data', $result['test']);
     }
 
-    public function testDataTransformer()
+    public function testDataTransformer(): void
     {
-        $mockTransformer = new class implements Transformer
-        {
+        $mockTransformer = new class implements Transformer {
             public function transform(array $data): EntityDTO
             {
-                return new class implements EntityDTO
-                {
+                return new class implements EntityDTO {
                     public function toArray(): array
                     {
                         return ['transformed' => 'data'];
@@ -48,11 +44,10 @@ class ComponentsTest extends TestCase
         $this->assertEquals(['transformed' => 'data'], $result->toArray());
     }
 
-    public function testPersister()
+    public function testPersister(): void
     {
-        $mockPersister = new class implements Persister
-        {
-            public $persistedData;
+        $mockPersister = new class implements Persister {
+            public array $persistedData = [];
 
             public function persist(EntityDTO $entity): void
             {
@@ -60,8 +55,7 @@ class ComponentsTest extends TestCase
             }
         };
 
-        $mockEntity = new class implements EntityDTO
-        {
+        $mockEntity = new class implements EntityDTO {
             public function toArray(): array
             {
                 return ['persisted' => 'data'];
