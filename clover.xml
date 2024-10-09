@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1728370078">
-  <project timestamp="1728370078">
+<coverage generated="1728481067">
+  <project timestamp="1728481067">
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/EntityDTO.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/ImportFacade.php">
       <class name="Panakour\DataBridgeIo\ImportFacade" namespace="global">
-        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+        <metrics complexity="3" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
       </class>
       <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="13" type="stmt" count="3"/>
-      <line num="15" type="method" name="executeImport" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="15" type="method" name="executeImport" visibility="public" complexity="2" crap="2" count="3"/>
       <line num="17" type="stmt" count="3"/>
       <line num="18" type="stmt" count="3"/>
       <line num="19" type="stmt" count="3"/>
-      <metrics loc="22" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+      <line num="20" type="stmt" count="3"/>
+      <metrics loc="24" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
     </file>
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Importer.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -25,6 +26,6 @@
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Transformer.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="5" loc="66" ncloc="66" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="6" coveredelements="6"/>
+    <metrics files="5" loc="68" ncloc="68" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="7" coveredelements="7"/>
   </project>
 </coverage>
