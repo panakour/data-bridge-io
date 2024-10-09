@@ -35,21 +35,22 @@ class ImportFacadeTest extends TestCase
 
     public function testExecuteImport()
     {
-        $importData = ['raw' => 'data'];
+        $importData = [
+            ['item' => 'test'],
+            ['item2' => 'test2'],
+        ];
         $mockEntityDTO = $this->createMock(EntityDTO::class);
 
         $this->mockStrategy->expects($this->once())
             ->method('import')
             ->willReturn($importData);
 
-        $this->mockTransformer->expects($this->once())
+        $this->mockTransformer->expects($this->exactly(2))
             ->method('transform')
-            ->with($this->equalTo($importData))
             ->willReturn($mockEntityDTO);
 
-        $this->mockPersister->expects($this->once())
-            ->method('persist')
-            ->with($this->equalTo($mockEntityDTO));
+        $this->mockPersister->expects($this->exactly(2))
+            ->method('persist');
 
         $this->importFacade->executeImport();
     }

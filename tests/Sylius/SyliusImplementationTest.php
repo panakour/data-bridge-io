@@ -33,12 +33,13 @@ class SyliusImplementationTest extends TestCase
 
     public function testSyliusProductImport()
     {
-        // Arrange
         $importData = [
-            'code' => 'SY001',
-            'name' => 'Test Sylius Product',
-            'description' => 'This is a test product for Sylius',
-            'price' => 29.99,
+            [
+                'code' => 'SY001',
+                'name' => 'Test Sylius Product',
+                'description' => 'This is a test product for Sylius',
+                'price' => 29.99,
+            ]
         ];
 
         $this->mockStrategy->expects($this->once())

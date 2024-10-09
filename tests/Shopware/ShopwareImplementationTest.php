@@ -34,11 +34,20 @@ class ShopwareImplementationTest extends TestCase
     public function testShopwareProductImport()
     {
         $importData = [
-            'productNumber' => 'SW001',
-            'name' => 'Test Product',
-            'price' => [['currencyId' => 'EUR', 'gross' => 19.99, 'net' => 16.80, 'linked' => true]],
-            'stock' => 100,
-            'isActive' => true,
+            [
+                'productNumber' => 'SW001',
+                'name' => 'Test Product',
+                'price' => [['currencyId' => 'EUR', 'gross' => 19.99, 'net' => 16.80, 'linked' => true]],
+                'stock' => 100,
+                'isActive' => true,
+            ],
+            [
+                'productNumber' => 'SW002',
+                'name' => 'Test Product 2',
+                'price' => [['currencyId' => 'EUR', 'gross' => 29.99, 'net' => 26.80, 'linked' => true]],
+                'stock' => 0,
+                'isActive' => true,
+            ]
         ];
 
         $this->mockStrategy->expects($this->once())
@@ -49,10 +58,10 @@ class ShopwareImplementationTest extends TestCase
 
         $persistedProduct = $this->shopwarePersister->getLastPersistedProduct();
         $this->assertInstanceOf(ShopwareProductDTO::class, $persistedProduct);
-        $this->assertEquals('SW001', $persistedProduct->productNumber);
-        $this->assertEquals('Test Product', $persistedProduct->name);
-        $this->assertEquals(100, $persistedProduct->stock);
-        $this->assertEquals([['currencyId' => 'EUR', 'gross' => 19.99, 'net' => 16.80, 'linked' => true]], $persistedProduct->price);
+        $this->assertEquals('SW002', $persistedProduct->productNumber);
+        $this->assertEquals('Test Product 2', $persistedProduct->name);
+        $this->assertEquals(0, $persistedProduct->stock);
+        $this->assertEquals([['currencyId' => 'EUR', 'gross' => 29.99, 'net' => 26.80, 'linked' => true]], $persistedProduct->price);
         $this->assertEquals(true, $persistedProduct->active);
     }
 }

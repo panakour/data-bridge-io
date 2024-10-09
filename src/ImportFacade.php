@@ -15,7 +15,9 @@ class ImportFacade
     public function executeImport(): void
     {
         $data = $this->strategy->import();
-        $entityDto = $this->dataTransformer->transform($data);
-        $this->persister->persist($entityDto);
+        foreach ($data as $item) {
+            $entityDto = $this->dataTransformer->transform($item);
+            $this->persister->persist($entityDto);
+        }
     }
 }
