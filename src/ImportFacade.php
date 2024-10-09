@@ -7,16 +7,16 @@ namespace Panakour\DataBridgeIo;
 class ImportFacade
 {
     public function __construct(
-        private Importer $strategy,
-        private Transformer $dataTransformer,
+        private Importer $importer,
+        private Transformer $transformer,
         private Persister $persister,
     ) {}
 
     public function executeImport(): void
     {
-        $data = $this->strategy->import();
+        $data = $this->importer->import();
         foreach ($data as $item) {
-            $entityDto = $this->dataTransformer->transform($item);
+            $entityDto = $this->transformer->transform($item);
             $this->persister->persist($entityDto);
         }
     }
