@@ -4,57 +4,39 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo\Shopware;
 
-use Panakour\DataBridgeIo\Importer;
-use Panakour\DataBridgeIo\ImportFacade;
+use Panakour\DataBridgeIo\Configuration;
+use Panakour\DataBridgeIo\DataBridge;
 use Panakour\Test\DataBridgeIo\TestCase;
 
 class ShopwareImplementationTest extends TestCase
 {
-    private $mockStrategy;
-
-    private $shopwareTransformer;
-
-    private $shopwarePersister;
-
-    private $importFacade;
+    private ShopwareImporter $shopwareImporter;
+    private ShopwareProductTransformer $shopwareTransformer;
+    private ShopwareProductPersister $shopwarePersister;
+    private DataBridge $bridge;
+    private Configuration $configuration;
 
     protected function setUp(): void
     {
-        $this->mockStrategy = $this->createMock(Importer::class);
-        $this->shopwareTransformer = new ShopwareProductTransformer;
-        $this->shopwarePersister = new ShopwareProductPersister;
+        $this->configuration = new Configuration(['api_url' => 'https://test-api.com']);
+        $this->shopwareImporter = new ShopwareImporter();
+        $this->shopwareTransformer = new ShopwareProductTransformer();
+        $this->shopwarePersister = new ShopwareProductPersister();
 
-        $this->importFacade = new ImportFacade(
-            $this->mockStrategy,
+        $this->bridge = new DataBridge(
+            $this->shopwareImporter,
             $this->shopwareTransformer,
             $this->shopwarePersister,
+            $this->configuration
         );
     }
 
     public function testShopwareProductImport()
     {
-        $importData = [
-            [
-                'productNumber' => 'SW001',
-                'name' => 'Test Product',
-                'price' => [['currencyId' => 'EUR', 'gross' => 19.99, 'net' => 16.80, 'linked' => true]],
-                'stock' => 100,
-                'isActive' => true,
-            ],
-            [
-                'productNumber' => 'SW002',
-                'name' => 'Test Product 2',
-                'price' => [['currencyId' => 'EUR', 'gross' => 29.99, 'net' => 26.80, 'linked' => true]],
-                'stock' => 0,
-                'isActive' => true,
-            ]
-        ];
+        $this->bridge->process();
 
-        $this->mockStrategy->expects($this->once())
-            ->method('import')
-            ->willReturn($importData);
-
-        $this->importFacade->executeImport();
+        $this->assertEquals("https://test-api.com", $this->shopwareImporter->configuration->get('api_url'));
+        $this->assertEquals("2024-10-09T15:00:00", $this->shopwareImporter->configuration->get('last_modification'));
 
         $persistedProduct = $this->shopwarePersister->getLastPersistedProduct();
         $this->assertInstanceOf(ShopwareProductDTO::class, $persistedProduct);

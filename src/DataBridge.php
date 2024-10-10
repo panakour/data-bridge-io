@@ -4,15 +4,27 @@ declare(strict_types=1);
 
 namespace Panakour\DataBridgeIo;
 
-class ImportFacade
+class DataBridge
 {
     public function __construct(
         private Importer $importer,
         private Transformer $transformer,
         private Persister $persister,
-    ) {}
+        private ?Configuration $configuration = null
+    ) {
+        $this->injectConfiguration();
+    }
 
-    public function executeImport(): void
+    private function injectConfiguration(): void
+    {
+        if ($this->configuration) {
+            if ($this->importer instanceof ConfigurableImporter) {
+                $this->importer->setConfiguration($this->configuration);
+            }
+        }
+    }
+
+    public function process(): void
     {
         $data = $this->importer->import();
         foreach ($data as $item) {

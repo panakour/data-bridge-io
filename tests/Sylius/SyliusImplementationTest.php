@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Panakour\Test\DataBridgeIo\Sylius;
 
 use Panakour\DataBridgeIo\Importer;
-use Panakour\DataBridgeIo\ImportFacade;
+use Panakour\DataBridgeIo\DataBridge;
 use Panakour\Test\DataBridgeIo\TestCase;
 
 class SyliusImplementationTest extends TestCase
@@ -16,7 +16,7 @@ class SyliusImplementationTest extends TestCase
 
     private $syliusPersister;
 
-    private $importFacade;
+    private $bridge;
 
     protected function setUp(): void
     {
@@ -24,7 +24,7 @@ class SyliusImplementationTest extends TestCase
         $this->syliusTransformer = new SyliusProductTransformer;
         $this->syliusPersister = new SyliusProductPersister;
 
-        $this->importFacade = new ImportFacade(
+        $this->bridge = new DataBridge(
             $this->mockStrategy,
             $this->syliusTransformer,
             $this->syliusPersister,
@@ -46,10 +46,8 @@ class SyliusImplementationTest extends TestCase
             ->method('import')
             ->willReturn($importData);
 
-        // Act
-        $this->importFacade->executeImport();
+        $this->bridge->process();
 
-        // Assert
         $persistedProduct = $this->syliusPersister->getLastPersistedProduct();
         $this->assertInstanceOf(SyliusProductDataDTO::class, $persistedProduct);
         $this->assertEquals('SY001', $persistedProduct->code);

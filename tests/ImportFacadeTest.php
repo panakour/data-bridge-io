@@ -6,7 +6,7 @@ namespace Panakour\Test\DataBridgeIo;
 
 use Panakour\DataBridgeIo\EntityDTO;
 use Panakour\DataBridgeIo\Importer;
-use Panakour\DataBridgeIo\ImportFacade;
+use Panakour\DataBridgeIo\DataBridge;
 use Panakour\DataBridgeIo\Persister;
 use Panakour\DataBridgeIo\Transformer;
 
@@ -18,7 +18,7 @@ class ImportFacadeTest extends TestCase
 
     private $mockPersister;
 
-    private $importFacade;
+    private $bridge;
 
     protected function setUp(): void
     {
@@ -26,7 +26,7 @@ class ImportFacadeTest extends TestCase
         $this->mockTransformer = $this->createMock(Transformer::class);
         $this->mockPersister = $this->createMock(Persister::class);
 
-        $this->importFacade = new ImportFacade(
+        $this->bridge = new DataBridge(
             $this->mockStrategy,
             $this->mockTransformer,
             $this->mockPersister,
@@ -52,6 +52,6 @@ class ImportFacadeTest extends TestCase
         $this->mockPersister->expects($this->exactly(2))
             ->method('persist');
 
-        $this->importFacade->executeImport();
+        $this->bridge->process();
     }
 }
