@@ -17,10 +17,20 @@ class DataBridge
 
     private function injectConfiguration(): void
     {
-        if ($this->configuration) {
-            if ($this->importer instanceof ConfigurableImporter) {
-                $this->importer->setConfiguration($this->configuration);
-            }
+        if ($this->configuration === null) {
+            return;
+        }
+
+        if ($this->importer instanceof Configurable) {
+            $this->importer->setConfiguration($this->configuration);
+        }
+
+        if ($this->transformer instanceof Configurable) {
+            $this->transformer->setConfiguration($this->configuration);
+        }
+
+        if ($this->persister instanceof Configurable) {
+            $this->persister->setConfiguration($this->configuration);
         }
     }
 

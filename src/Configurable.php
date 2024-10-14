@@ -2,7 +2,9 @@
 
 namespace Panakour\DataBridgeIo;
 
-interface ConfigurableImporter extends Importer
+interface Configurable
 {
     public function setConfiguration(Configuration $configuration): void;
+
+    public function getConfiguration(): ?Configuration;
 }
