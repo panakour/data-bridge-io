@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1728549049">
-  <project timestamp="1728549049">
+<coverage generated="1728896194">
+  <project timestamp="1728896194">
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/ConfigurableImporter.php">
       <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
+    <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/ConfigurableTrait.php">
+      <class name="Panakour\DataBridgeIo\ConfigurableTrait" namespace="global">
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+      </class>
+      <line num="11" type="method" name="setConfiguration" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="16" type="method" name="getConfiguration" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="18" type="stmt" count="1"/>
+      <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
+    </file>
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Configuration.php">
       <class name="Panakour\DataBridgeIo\Configuration" namespace="global">
-        <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
+        <metrics complexity="3" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="2" elements="6" coveredelements="4"/>
       </class>
       <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="11" type="stmt" count="1"/>
       <line num="13" type="method" name="get" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="15" type="stmt" count="1"/>
-      <line num="18" type="method" name="set" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="20" type="stmt" count="1"/>
-      <metrics loc="23" ncloc="23" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="6" coveredelements="6"/>
+      <line num="18" type="method" name="set" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <metrics loc="23" ncloc="23" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="2" elements="6" coveredelements="4"/>
     </file>
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/DataBridge.php">
       <class name="Panakour\DataBridgeIo\DataBridge" namespace="global">
@@ -45,6 +55,6 @@
     <file name="/home/runner/work/data-bridge-io/data-bridge-io/src/Transformer.php">
       <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <metrics files="7" loc="112" ncloc="112" classes="2" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="17" coveredelements="17"/>
+    <metrics files="8" loc="133" ncloc="133" classes="3" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="12" elements="21" coveredelements="19"/>
   </project>
 </coverage>
