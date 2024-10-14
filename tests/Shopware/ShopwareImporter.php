@@ -5,17 +5,11 @@ declare(strict_types=1);
 namespace Panakour\Test\DataBridgeIo\Shopware;
 
 use Panakour\DataBridgeIo\ConfigurableImporter;
-use Panakour\DataBridgeIo\Configuration;
+use Panakour\DataBridgeIo\ConfigurableTrait;
 
 class ShopwareImporter implements ConfigurableImporter
 {
-    public ?Configuration $configuration = null;
-
-    public function setConfiguration(Configuration $configuration): void
-    {
-        $this->configuration = $configuration;
-        $this->configuration->set('last_modification', '2024-10-09T15:00:00');
-    }
+    use ConfigurableTrait;
 
     public function import(): array
     {

@@ -18,7 +18,9 @@ class ShopwareImplementationTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->configuration = new Configuration(['api_url' => 'https://test-api.com']);
+        $this->configuration = new Configuration([
+            'api_url' => 'https://test-api.com', 'last_modification' => '2024-10-09T15:00:00',
+        ]);
         $this->shopwareImporter = new ShopwareImporter();
         $this->shopwareTransformer = new ShopwareProductTransformer();
         $this->shopwarePersister = new ShopwareProductPersister();
@@ -35,15 +37,16 @@ class ShopwareImplementationTest extends TestCase
     {
         $this->bridge->process();
 
-        $this->assertEquals("https://test-api.com", $this->shopwareImporter->configuration->get('api_url'));
-        $this->assertEquals("2024-10-09T15:00:00", $this->shopwareImporter->configuration->get('last_modification'));
+        $this->assertEquals("https://test-api.com", $this->shopwareImporter->getConfiguration()->get('api_url'));
+        $this->assertEquals("2024-10-09T15:00:00", $this->shopwareImporter->getConfiguration()->get('last_modification'));
 
         $persistedProduct = $this->shopwarePersister->getLastPersistedProduct();
         $this->assertInstanceOf(ShopwareProductDTO::class, $persistedProduct);
         $this->assertEquals('SW002', $persistedProduct->productNumber);
         $this->assertEquals('Test Product 2', $persistedProduct->name);
         $this->assertEquals(0, $persistedProduct->stock);
-        $this->assertEquals([['currencyId' => 'EUR', 'gross' => 29.99, 'net' => 26.80, 'linked' => true]], $persistedProduct->price);
+        $this->assertEquals([['currencyId' => 'EUR', 'gross' => 29.99, 'net' => 26.80, 'linked' => true]],
+            $persistedProduct->price);
         $this->assertEquals(true, $persistedProduct->active);
     }
 }
