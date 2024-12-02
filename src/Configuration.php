@@ -6,9 +6,7 @@ namespace Panakour\DataBridgeIo;
 
 final class Configuration
 {
-    public function __construct(private array $settings = [])
-    {
-    }
+    public function __construct(private array $settings = []) {}
 
     public function get(string $key, $default = null): mixed
     {

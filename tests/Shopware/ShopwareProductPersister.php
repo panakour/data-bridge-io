@@ -9,7 +9,7 @@ use Panakour\DataBridgeIo\ConfigurableTrait;
 use Panakour\DataBridgeIo\EntityDTO;
 use Panakour\DataBridgeIo\Persister;
 
-class ShopwareProductPersister implements Persister, Configurable
+class ShopwareProductPersister implements Configurable, Persister
 {
     use ConfigurableTrait;
 

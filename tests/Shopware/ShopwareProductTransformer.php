@@ -9,7 +9,7 @@ use Panakour\DataBridgeIo\ConfigurableTrait;
 use Panakour\DataBridgeIo\EntityDTO;
 use Panakour\DataBridgeIo\Transformer;
 
-class ShopwareProductTransformer implements Transformer, Configurable
+class ShopwareProductTransformer implements Configurable, Transformer
 {
     use ConfigurableTrait;
 

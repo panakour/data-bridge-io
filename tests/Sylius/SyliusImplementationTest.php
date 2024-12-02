@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo\Sylius;
 
-use Panakour\DataBridgeIo\Importer;
 use Panakour\DataBridgeIo\DataBridge;
+use Panakour\DataBridgeIo\Importer;
 use Panakour\Test\DataBridgeIo\TestCase;
 
 class SyliusImplementationTest extends TestCase
@@ -31,7 +31,7 @@ class SyliusImplementationTest extends TestCase
         );
     }
 
-    public function testSyliusProductImport()
+    public function test_sylius_product_import()
     {
         $importData = [
             [
@@ -39,7 +39,7 @@ class SyliusImplementationTest extends TestCase
                 'name' => 'Test Sylius Product',
                 'description' => 'This is a test product for Sylius',
                 'price' => 29.99,
-            ]
+            ],
         ];
 
         $this->mockStrategy->expects($this->once())

@@ -11,9 +11,13 @@ use Panakour\Test\DataBridgeIo\TestCase;
 class ShopwareImplementationTest extends TestCase
 {
     private ShopwareImporter $shopwareImporter;
+
     private ShopwareProductTransformer $shopwareTransformer;
+
     private ShopwareProductPersister $shopwarePersister;
+
     private DataBridge $bridge;
+
     private Configuration $configuration;
 
     protected function setUp(): void
@@ -21,9 +25,9 @@ class ShopwareImplementationTest extends TestCase
         $this->configuration = new Configuration([
             'api_url' => 'https://test-api.com', 'last_modification' => '2024-10-09T15:00:00',
         ]);
-        $this->shopwareImporter = new ShopwareImporter();
-        $this->shopwareTransformer = new ShopwareProductTransformer();
-        $this->shopwarePersister = new ShopwareProductPersister();
+        $this->shopwareImporter = new ShopwareImporter;
+        $this->shopwareTransformer = new ShopwareProductTransformer;
+        $this->shopwarePersister = new ShopwareProductPersister;
 
         $this->bridge = new DataBridge(
             $this->shopwareImporter,
@@ -33,12 +37,12 @@ class ShopwareImplementationTest extends TestCase
         );
     }
 
-    public function testShopwareProductImport()
+    public function test_shopware_product_import()
     {
         $this->bridge->process();
 
-        $this->assertEquals("https://test-api.com", $this->shopwareImporter->getConfiguration()->get('api_url'));
-        $this->assertEquals("2024-10-09T15:00:00", $this->shopwareImporter->getConfiguration()->get('last_modification'));
+        $this->assertEquals('https://test-api.com', $this->shopwareImporter->getConfiguration()->get('api_url'));
+        $this->assertEquals('2024-10-09T15:00:00', $this->shopwareImporter->getConfiguration()->get('last_modification'));
 
         $persistedProduct = $this->shopwarePersister->getLastPersistedProduct();
         $this->assertInstanceOf(ShopwareProductDTO::class, $persistedProduct);

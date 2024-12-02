@@ -8,7 +8,7 @@ use Panakour\DataBridgeIo\Configurable;
 use Panakour\DataBridgeIo\ConfigurableTrait;
 use Panakour\DataBridgeIo\Importer;
 
-class ShopwareImporter implements Importer, Configurable
+class ShopwareImporter implements Configurable, Importer
 {
     use ConfigurableTrait;
 

@@ -15,9 +15,8 @@
     },
     "require-dev": {
         "laravel/pint": "^1.18",
-        "phpstan/phpstan": "^1.12",
-        "phpunit/phpunit": "^10.5",
-        "vimeo/psalm": "^5.26.1"
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^11.4"
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -38,9 +37,11 @@
         "lint": "pint",
         "test:lint": "pint --test",
         "test:types": "phpstan analyse --ansi",
+        "test:unit": "XDEBUG_MODE=coverage phpunit",
         "test": [
             "@test:lint",
-            "@test:types"
+            "@test:types",
+            "@test:unit"
         ]
     }
 }

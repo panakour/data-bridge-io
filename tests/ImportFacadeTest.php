@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Panakour\Test\DataBridgeIo;
 
+use Panakour\DataBridgeIo\DataBridge;
 use Panakour\DataBridgeIo\EntityDTO;
 use Panakour\DataBridgeIo\Importer;
-use Panakour\DataBridgeIo\DataBridge;
 use Panakour\DataBridgeIo\Persister;
 use Panakour\DataBridgeIo\Transformer;
 
@@ -33,7 +33,7 @@ class ImportFacadeTest extends TestCase
         );
     }
 
-    public function testExecuteImport()
+    public function test_execute_import()
     {
         $importData = [
             ['item' => 'test'],
