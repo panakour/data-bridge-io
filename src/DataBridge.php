@@ -10,7 +10,8 @@ class DataBridge
         private Importer $importer,
         private Transformer $transformer,
         private Persister $persister,
-        private ?Configuration $configuration = null
+        private ?Configuration $configuration = null,
+        private ?Validator $validator = null
     ) {
         $this->injectConfiguration();
     }
@@ -38,6 +39,9 @@ class DataBridge
     {
         $data = $this->importer->import();
         foreach ($data as $item) {
+            if ($this->validator && ! $this->validator->isValid($item)) {
+                continue;
+            }
             $entityDto = $this->transformer->transform($item);
             $this->persister->persist($entityDto);
         }

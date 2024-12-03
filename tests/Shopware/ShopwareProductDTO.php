@@ -8,7 +8,7 @@ use Panakour\DataBridgeIo\EntityDTO;
 
 class ShopwareProductDTO implements EntityDTO
 {
-    public ?string $productId = null;
+    public ?string $id = null;
 
     public ?string $productNumber = null;
 
@@ -18,7 +18,9 @@ class ShopwareProductDTO implements EntityDTO
 
     public ?string $taxId = null;
 
-    public array $price = [];
+    public array $visibilities;
+
+    public array $price;
 
     public ?bool $active = null;
 
@@ -40,15 +42,15 @@ class ShopwareProductDTO implements EntityDTO
 
     public ?string $manufacturerId = null;
 
-    public array $categories = [];
+    public array $categories;
 
-    public array $properties = [];
+    public array $properties;
 
-    public array $customFields = [];
+    public array $customFields;
 
-    public array $media = [];
+    public array $media;
 
-    public array $cover = [];
+    public array $cover;
 
     public bool $isCloseout = true;
 

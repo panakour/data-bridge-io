@@ -13,16 +13,23 @@ class ShopwareProductPersister implements Configurable, Persister
 {
     use ConfigurableTrait;
 
+    private array $persitedItems = [];
+
     private $lastPersistedProduct;
 
     public function persist(EntityDTO $entity): void
     {
-        // In a real implementation, this would save to Shopware's database
+        $this->persitedItems[] = $entity;
         $this->lastPersistedProduct = $entity;
     }
 
     public function getLastPersistedProduct(): ?ShopwareProductDTO
     {
         return $this->lastPersistedProduct;
+    }
+
+    public function getPersitedItems(): array
+    {
+        return $this->persitedItems;
     }
 }

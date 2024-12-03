@@ -19,11 +19,18 @@ class ShopwareImporter implements Configurable, Importer
 
         return [
             [
+                'name' => 'not valid item',
+                'stock' => 100,
+            ],
+            [
                 'productNumber' => 'SW001',
                 'name' => 'Test Product',
                 'price' => [['currencyId' => 'EUR', 'gross' => 19.99, 'net' => 16.80, 'linked' => true]],
                 'stock' => 100,
                 'isActive' => true,
+            ],
+            [
+                'item' => 'not valid',
             ],
             [
                 'productNumber' => 'SW002',

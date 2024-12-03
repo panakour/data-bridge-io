@@ -8,6 +8,7 @@ use Panakour\DataBridgeIo\EntityDTO;
 use Panakour\DataBridgeIo\Importer;
 use Panakour\DataBridgeIo\Persister;
 use Panakour\DataBridgeIo\Transformer;
+use Panakour\DataBridgeIo\Validator;
 
 class ComponentsTest extends TestCase
 {
@@ -24,6 +25,21 @@ class ComponentsTest extends TestCase
         $result = $mockStrategy->import();
         $this->assertArrayHasKey('test', $result);
         $this->assertEquals('data', $result['test']);
+    }
+
+    public function test_validator(): void
+    {
+        $mockValidator = new class implements Validator
+        {
+            public function isValid(array $data): bool
+            {
+                return isset($data['valid']) && $data['valid'] === true;
+            }
+        };
+
+        $this->assertTrue($mockValidator->isValid(['valid' => true]));
+        $this->assertFalse($mockValidator->isValid(['valid' => false]));
+        $this->assertFalse($mockValidator->isValid([]));
     }
 
     public function test_data_transformer(): void

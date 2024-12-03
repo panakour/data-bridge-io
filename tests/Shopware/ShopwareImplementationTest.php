@@ -16,6 +16,8 @@ class ShopwareImplementationTest extends TestCase
 
     private ShopwareProductPersister $shopwarePersister;
 
+    private ShopwareProductValidator $shopwareValidator;
+
     private DataBridge $bridge;
 
     private Configuration $configuration;
@@ -28,12 +30,14 @@ class ShopwareImplementationTest extends TestCase
         $this->shopwareImporter = new ShopwareImporter;
         $this->shopwareTransformer = new ShopwareProductTransformer;
         $this->shopwarePersister = new ShopwareProductPersister;
+        $this->shopwareValidator = new ShopwareProductValidator;
 
         $this->bridge = new DataBridge(
             $this->shopwareImporter,
             $this->shopwareTransformer,
             $this->shopwarePersister,
-            $this->configuration
+            $this->configuration,
+            $this->shopwareValidator
         );
     }
 
@@ -52,5 +56,14 @@ class ShopwareImplementationTest extends TestCase
         $this->assertEquals([['currencyId' => 'EUR', 'gross' => 29.99, 'net' => 26.80, 'linked' => true]],
             $persistedProduct->price);
         $this->assertEquals(true, $persistedProduct->active);
+    }
+
+    public function test_shopware_product_import_not_include_invalid_items()
+    {
+        $this->bridge->process();
+
+        $persistedProduct = $this->shopwarePersister->getPersitedItems();
+        $this->assertNotEmpty($persistedProduct);
+        $this->assertCount(2, $persistedProduct);
     }
 }
